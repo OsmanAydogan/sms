@@ -1,20 +1,19 @@
-#CODZA
-#enough reborn kodlarından yararlanılmıştır
+#OS
 from colorama import Fore, Style
 from time import sleep
 from os import system
 from sms import SendSms
 import threading
 
-# CODZA ASCII Sanatı Başlangıcı
+# OS ASCII Sanatı Başlangıcı
 print("""
-  CCCC    OOO    DDDD    ZZZZZ   AAAAA
- C        O   O   D   D     Z    A     A
- C        O   O   D   D    Z     AAAAAAA
- C        O   O   D   D   Z      A     A
-  CCCC    OOO    DDDD   ZZZZZ   A     A
+   OOO     SSSS
+  O   O   S    
+  O   O    SSS 
+  O   O       S
+   OOO    SSSS 
 """)
-# CODZA ASCII Sanatı 
+# OS ASCII Sanatı 
 
 servisler_sms = []
 for attribute in dir(SendSms):
@@ -27,7 +26,7 @@ while 1:
     system("cls||clear")
     print("""{}
     
-    Sms: {}           {}by {}@Codza\n  
+    Sms: {}           {}by {}@OS\n  
     """.format(Fore.LIGHTCYAN_EX, len(servisler_sms), Style.RESET_ALL, Fore.LIGHTRED_EX))
     try:
         menu = (input(Fore.LIGHTMAGENTA_EX + " 1- SMS Gönder (Normal)\n\n 2- SMS Gönder (Turbo)\n\n 3- Çıkış\n\n" + Fore.LIGHTYELLOW_EX + " Seçim: "))
@@ -72,16 +71,7 @@ while 1:
                 sleep(3)
                 continue
         system("cls||clear")
-        try:
-            print(Fore.LIGHTYELLOW_EX + "Mail adresi (Bilmiyorsanız 'enter' tuşuna basın): "+ Fore.LIGHTGREEN_EX, end="")
-            mail = input()
-            if ("@" not in mail or ".com" not in mail) and mail != "":
-                raise
-        except:
-            system("cls||clear")
-            print(Fore.LIGHTRED_EX + "Hatalı mail adresi. Tekrar deneyiniz.") 
-            sleep(3)
-            continue
+        mail = ""
         system("cls||clear")
         try:
             print(Fore.LIGHTYELLOW_EX + f"Kaç adet SMS göndermek istiyorsun {sonsuz}: "+ Fore.LIGHTGREEN_EX, end="")
@@ -146,16 +136,7 @@ while 1:
             sleep(3)
             continue
         system("cls||clear")
-        try:
-            print(Fore.LIGHTYELLOW_EX + "Mail adresi (Bilmiyorsanız 'enter' tuşuna basın): "+ Fore.LIGHTGREEN_EX, end="")
-            mail = input()
-            if ("@" not in mail or ".com" not in mail) and mail != "":
-                raise
-        except:
-            system("cls||clear")
-            print(Fore.LIGHTRED_EX + "Hatalı mail adresi. Tekrar deneyiniz.") 
-            sleep(3)
-            continue
+        mail = ""
         system("cls||clear")
         send_sms = SendSms(tel_no, mail)
         dur = threading.Event()
