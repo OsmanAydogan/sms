@@ -71,8 +71,6 @@ while 1:
                 sleep(3)
                 continue
         system("cls||clear")
-        mail = ""
-        system("cls||clear")
         try:
             print(Fore.LIGHTYELLOW_EX + f"Kaç adet SMS göndermek istiyorsun {sonsuz}: "+ Fore.LIGHTGREEN_EX, end="")
             kere = input()
@@ -96,7 +94,7 @@ while 1:
             continue
         system("cls||clear")
         if kere is None: 
-            sms = SendSms(tel_no, mail)
+            sms = SendSms(tel_no)
             while True:
                 for attribute in dir(SendSms):
                     attribute_value = getattr(SendSms, attribute)
@@ -105,7 +103,7 @@ while 1:
                             exec("sms."+attribute+"()")
                             sleep(aralik)
         for i in tel_liste:
-            sms = SendSms(i, mail)
+            sms = SendSms(i)
             if isinstance(kere, int):
                     while sms.adet < kere:
                         for attribute in dir(SendSms):
@@ -136,9 +134,7 @@ while 1:
             sleep(3)
             continue
         system("cls||clear")
-        mail = ""
-        system("cls||clear")
-        send_sms = SendSms(tel_no, mail)
+        send_sms = SendSms(tel_no)
         dur = threading.Event()
         def Turbo():
             while not dur.is_set():
